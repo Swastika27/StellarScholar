@@ -17,11 +17,11 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
-    public List<CourseModel> getCourseById (Long courseId)
+    public CourseModel getCourseById (Long courseId)
             throws ResourceNotFoundException {
         CourseModel course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new ResourceNotFoundException("Course not found for this id :: " + courseId));
-        return List.of(course);
+        return course;
     }
 
     public CourseModel createCourse(CourseModel course) {

@@ -2,16 +2,19 @@ package StellarScholar.Course;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "course")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class CourseModel {
     @Id
     @GeneratedValue(
@@ -36,7 +39,7 @@ public class CourseModel {
             nullable = false
     )
     @Temporal(TemporalType.DATE)
-    private Date startDate;
+    private LocalDate startDate;
 
     @Column(name = "total_lecture",
             nullable = false
